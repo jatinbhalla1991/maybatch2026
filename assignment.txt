@@ -1,0 +1,7 @@
+ 
+terraform
+21st may
+assignment1: run terraform code and try to store your backend configuration on s3 bucket
+assignment2: create rds server and print its properties in the output
+assignment3: check the usage of data block and try to implement in your code
+assignment4: check the usage of output file and block
