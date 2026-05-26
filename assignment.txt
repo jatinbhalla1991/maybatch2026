@@ -20,3 +20,15 @@ modules
 assignment2 (optional)
 create a s3 bucket manually 
 then import the s3 bucket on the terraform state file after importing to confirm add the tags in the s3 bucket using terraform
+
+
+assignment 3 (githubactions)
+create a github actions yaml for below task
+
+task: create a terraform pipeline, once you trigger the pipeline your infrastructure should be created
+
+things to taks care:
+authentication between aws and git hub actions will be required
+authentication keys need to be stored as a secret and use it in pipeline
+
+run the pipeline and check if infrastructure is created in aws
