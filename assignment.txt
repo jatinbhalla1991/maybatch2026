@@ -32,3 +32,20 @@ authentication between aws and git hub actions will be required
 authentication keys need to be stored as a secret and use it in pipeline
 
 run the pipeline and check if infrastructure is created in aws
+
+assignment4
+create a github workflow to deploy terraform code but with below conditions
+1. take input from user for which environment they want to create resources
+if user selects dev then resources in aws should have naming convention as dev
+if user gives qa then resources in aws should have naming convention as qa
+
+
+2. take input from user for actions the pipeline want to perform
+
+scenerios 
+if user selects plan then only plan stage should run
+if users selects apply then plan and apply both should run
+if user selects destroy then plan and destroy should run
+
+
+note= make sure your secrets and variables are not hard coded in code or pipeline
