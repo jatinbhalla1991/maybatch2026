@@ -1,0 +1,21 @@
+sudo apt update && sudo apt upgrade -y
+
+sudo apt install openjdk-17-jdk -y
+
+steps for Jenkins setup
+
+step1: curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+step2: echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+
+step3: sudo apt update
+
+step4: sudo apt install jenkins -y
+
+steps5: sudo systemctl start Jenkins
+
+step6: sudo systemctl status jenkins

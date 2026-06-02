@@ -10,7 +10,7 @@ module "ec2" {
   
 }
 
-module "securitygroup" {
-  source = "./securitygroup"
-  sg_name = var.sg_name
-}
+# module "securitygroup" {
+#   source = "./securitygroup"
+#   sg_name = var.sg_name
+# }
