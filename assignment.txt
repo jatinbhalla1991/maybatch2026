@@ -49,3 +49,11 @@ if user selects destroy then plan and destroy should run
 
 
 note= make sure your secrets and variables are not hard coded in code or pipeline
+
+
+
+3rd june
+jenkins assignments
+
+create another ec2 instance and try to set that machine as jenkins node
+to verify run the pipeline using that node
