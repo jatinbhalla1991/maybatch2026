@@ -57,3 +57,22 @@ jenkins assignments
 
 create another ec2 instance and try to set that machine as jenkins node
 to verify run the pipeline using that node
+
+
+4th june
+create a terraform pipeline in Jenkins
+once you make any changes on the GitHub your pipeline should trigger
+
+note:
+
+tasks:
+
+git checkout
+aws authentication
+terraform installation
+terraform init
+terraform plan 
+terraform apply
+
+
+my pipeline should stop/pause between the plan and apply stage and ask for my manual approval
