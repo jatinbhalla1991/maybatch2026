@@ -1,0 +1,49 @@
+1. Check if Your CPU Supports Virtualization
+
+Open Command Prompt:
+
+   systeminfo
+
+Look for:
+
+Hyper-V Requirements:
+    VM Monitor Mode Extensions: Yes
+    Virtualization Enabled In Firmware: Yes/No
+
+If Virtualization Enabled In Firmware = No, you need to enable it in BIOS.
+
+2. Check Task Manager
+  1. Press Ctrl + Shift + Esc
+  2. Go to Performance → CPU
+  3. Look for:
+    
+Virtualization: Enabled
+
+or
+
+Virtualization: Disabled
+
+
+3. Enable Virtualization in BIOS/UEFI
+
+Restart your laptop and enter BIOS:
+
+Common keys:
+
+  Dell: F2
+  HP: F10 or Esc
+  Lenovo: F1 or F2
+  ASUS: F2 or Del
+  Acer: F2
+
+Look for one of:
+
+ Intel Virtualization Technology (VT-x)
+ Intel VT-d
+ AMD-V
+ SVM Mode
+ Virtualization Technology
+
+Set it to Enabled.
+
+Save and exit.
