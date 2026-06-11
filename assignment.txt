@@ -86,3 +86,12 @@ install apache on the target machine
 create a html file on the main machine then using the ansible playbook copy the html content on  the target machine
 
 then hit ip address of the target machine from browser and see if you get the html page 
+
+
+assignment 11th june
+
+docker
+
+write a sample java code or any language and create a docker file to deploy the java application inside the image
+
+once your image is created try to run the image and test it uisng local host
