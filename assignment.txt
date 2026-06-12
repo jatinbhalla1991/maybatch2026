@@ -95,3 +95,31 @@ docker
 write a sample java code or any language and create a docker file to deploy the java application inside the image
 
 once your image is created try to run the image and test it uisng local host
+
+
+
+Assignment 12th june
+
+assignment 1: 
+try to build the image with single stage docker file
+and try to build the image with multistage docker file
+
+once your both images are created see the sizes of the images
+
+assignment2:
+
+create a container with bind mounts, in which use your system d:drive
+
+after running the container go inside the container and create some file inside the directory for which you have attached the volume.
+
+once your volume is attahced and files are create now go back to your d drive and check the file which you have created inside the container should in the d drive
+
+similarly create some file in the D drive and check in the container the file should be visible
+
+
+
+assignment 3:
+
+create ECR in aws account
+
+try to create some sample images and push under the ECR
