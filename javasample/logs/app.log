@@ -1,0 +1,140 @@
+2026-06-15 13:34:30 - Hello, World!
+2026-06-15 13:34:30 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:34:30 - Application Running - Iteration: 1
+2026-06-15 13:34:30 - Application Running - Iteration: 2
+2026-06-15 13:34:30 - Application Running - Iteration: 3
+2026-06-15 13:34:30 - Application Running - Iteration: 4
+2026-06-15 13:34:30 - Application Running - Iteration: 5
+2026-06-15 13:34:30 - Application completed successfully!
+2026-06-15 13:34:41 - Hello, World!
+2026-06-15 13:34:41 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:34:41 - Application Running - Iteration: 1
+2026-06-15 13:34:41 - Application Running - Iteration: 2
+2026-06-15 13:34:41 - Application Running - Iteration: 3
+2026-06-15 13:34:41 - Application Running - Iteration: 4
+2026-06-15 13:34:41 - Application Running - Iteration: 5
+2026-06-15 13:34:41 - Application completed successfully!
+2026-06-15 13:34:53 - Hello, World!
+2026-06-15 13:34:53 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:34:53 - Application Running - Iteration: 1
+2026-06-15 13:34:53 - Application Running - Iteration: 2
+2026-06-15 13:34:53 - Application Running - Iteration: 3
+2026-06-15 13:34:53 - Application Running - Iteration: 4
+2026-06-15 13:34:53 - Application Running - Iteration: 5
+2026-06-15 13:34:53 - Application completed successfully!
+2026-06-15 13:35:04 - Hello, World!
+2026-06-15 13:35:04 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:35:04 - Application Running - Iteration: 1
+2026-06-15 13:35:04 - Application Running - Iteration: 2
+2026-06-15 13:35:04 - Application Running - Iteration: 3
+2026-06-15 13:35:04 - Application Running - Iteration: 4
+2026-06-15 13:35:04 - Application Running - Iteration: 5
+2026-06-15 13:35:04 - Application completed successfully!
+2026-06-15 13:35:16 - Hello, World!
+2026-06-15 13:35:16 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:35:16 - Application Running - Iteration: 1
+2026-06-15 13:35:16 - Application Running - Iteration: 2
+2026-06-15 13:35:16 - Application Running - Iteration: 3
+2026-06-15 13:35:16 - Application Running - Iteration: 4
+2026-06-15 13:35:16 - Application Running - Iteration: 5
+2026-06-15 13:35:16 - Application completed successfully!
+2026-06-15 13:35:27 - Hello, World!
+2026-06-15 13:35:27 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:35:27 - Application Running - Iteration: 1
+2026-06-15 13:35:27 - Application Running - Iteration: 2
+2026-06-15 13:35:27 - Application Running - Iteration: 3
+2026-06-15 13:35:27 - Application Running - Iteration: 4
+2026-06-15 13:35:27 - Application Running - Iteration: 5
+2026-06-15 13:35:27 - Application completed successfully!
+2026-06-15 13:35:39 - Hello, World!
+2026-06-15 13:35:39 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:35:39 - Application Running - Iteration: 1
+2026-06-15 13:35:39 - Application Running - Iteration: 2
+2026-06-15 13:35:39 - Application Running - Iteration: 3
+2026-06-15 13:35:39 - Application Running - Iteration: 4
+2026-06-15 13:35:39 - Application Running - Iteration: 5
+2026-06-15 13:35:39 - Application completed successfully!
+2026-06-15 13:35:51 - Hello, World!
+2026-06-15 13:35:51 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:35:51 - Application Running - Iteration: 1
+2026-06-15 13:35:51 - Application Running - Iteration: 2
+2026-06-15 13:35:51 - Application Running - Iteration: 3
+2026-06-15 13:35:51 - Application Running - Iteration: 4
+2026-06-15 13:35:51 - Application Running - Iteration: 5
+2026-06-15 13:35:51 - Application completed successfully!
+2026-06-15 13:36:02 - Hello, World!
+2026-06-15 13:36:02 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+OS Name: Linux
+OS Version: 5.15.153.1-microsoft-standard-WSL2
+User Home: /home/appuser
+2026-06-15 13:36:02 - Application Running - Iteration: 1
+2026-06-15 13:36:02 - Application Running - Iteration: 2
+2026-06-15 13:36:02 - Application Running - Iteration: 3
+2026-06-15 13:36:02 - Application Running - Iteration: 4
+2026-06-15 13:36:02 - Application Running - Iteration: 5
+2026-06-15 13:36:02 - Application completed successfully!
+2026-06-15 13:36:14 - Hello, World!
+2026-06-15 13:36:14 - Java Application Running in Docker
+
+System Information:
+Java Version: 11.0.31
+2026-06-15 13:37:03 - Application Starting
+2026-06-15 13:37:03 - Java Version: 11.0.31
+2026-06-15 13:37:03 - OS Name: Linux
+2026-06-15 13:37:03 - Starting HTTP Server on port 8080
+2026-06-15 13:37:03 - HTTP Server started successfully!
+2026-06-15 13:37:10 - Request received from 172.19.0.1
+2026-06-15 13:37:11 - Request received from 172.19.0.1
+2026-06-15 13:37:17 - Request received from 172.19.0.1
+2026-06-15 13:37:18 - Request received from 172.19.0.1

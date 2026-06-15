@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  java-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: java-sample-app
+    image: java-sample:1.0
+    ports:
+      - "8080:8080"
+      - "9000:9000"
+    environment:
+      - JAVA_OPTS=-Xmx256m -Xms128m
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./config:/app/config
+    restart: unless-stopped
+    networks:
+      - app-network
+    labels:
+      - "com.example.description=Java Sample Application"
+      - "com.example.version=1.0"
+
+networks:
+  app-network:
+    driver: bridge
