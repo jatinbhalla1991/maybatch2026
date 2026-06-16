@@ -123,3 +123,25 @@ assignment 3:
 create ECR in aws account
 
 try to create some sample images and push under the ECR
+
+
+16th june
+
+assignment1:
+
+create a pipeline in github actions or jenkins with below steps:
+
+1. your code and docker file should in same repo
+2. build your docker images 
+3. push the docker images on docker hub
+
+these above actions should be repeative as soon as you make any changes on the repo
+
+
+Question 1
+
+Create a custom Docker bridge network called student-net. Launch two Ubuntu containers attached to this network and verify that they can communicate with each other using both container names and IP addresses.
+
+Question 2
+
+Create a custom network named web-net. Deploy an Nginx container named frontend and an Apache container named backend on this network. Demonstrate communication between the two containers and identify the network subnet and gateway.
