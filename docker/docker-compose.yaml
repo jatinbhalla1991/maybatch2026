@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  html-app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: html-sample-app
+    image: jatinbhalla1991/html-sample:1.0
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    restart: unless-stopped
+    # networks:
+    #   - app-network
+    # labels:
+    #   - "com.example.description=HTML Sample Application"
+    #   - "com.example.version=1.0"
+  redis:
+    image: redis:6.2
+    container_name: redis-server
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    # networks:
+    #   - app-network
+    # labels:
+    #   - "com.example.description=Redis Server"
+    #   - "com.example.version=6.2"
+  postgres:
+    image: postgres:13
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sampledb
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    # networks:
+    #   - app-network
+    # labels:
+    #   - "com.example.description=PostgreSQL Database"
+    #   - "com.example.version=13"
