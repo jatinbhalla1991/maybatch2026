@@ -145,3 +145,15 @@ Create a custom Docker bridge network called student-net. Launch two Ubuntu cont
 Question 2
 
 Create a custom network named web-net. Deploy an Nginx container named frontend and an Apache container named backend on this network. Demonstrate communication between the two containers and identify the network subnet and gateway.
+
+
+
+17th may
+
+kubernetes 
+
+assignment1  
+
+try kubernetes commands
+
+https://kubernetes.io/docs/reference/kubectl/quick-reference/
