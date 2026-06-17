@@ -152,7 +152,11 @@ Create a custom network named web-net. Deploy an Nginx container named frontend 
 
 kubernetes 
 
-assignment1  
+assignment1
+
+setup kubernetes environment using terraform 
+
+assignment2  
 
 try kubernetes commands
 
