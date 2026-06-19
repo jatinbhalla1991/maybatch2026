@@ -161,3 +161,24 @@ assignment2
 try kubernetes commands
 
 https://kubernetes.io/docs/reference/kubectl/quick-reference/
+
+
+Final: 
+
+create 2 different environments
+dev and productions
+
+
+in this use each tool
+git
+terraform
+github actions
+docker
+kubernetes
+
+try to follow the complete architecture as explained 
+
+means you  will first deploy the changes on dev, after testing you will mege the code on prod branch and finally your deployment will go on the productions environment
+
+
+you can take reference from this project https://github.com/jatinbhalla1991/RSAPROJECTK8
