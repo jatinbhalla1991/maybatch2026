@@ -1,0 +1,156 @@
+---
+# ConfigMap for Grafana datasources
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasources
+  namespace: monitoring
+data:
+  prometheus.yml: |
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        access: proxy
+        url: http://prometheus:9090
+        isDefault: true
+        editable: true
+
+---
+# ConfigMap for Grafana provisioning
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-config
+  namespace: monitoring
+data:
+  grafana.ini: |
+    [security]
+    admin_user = admin
+    admin_password = admin123
+    [users]
+    allow_sign_up = false
+
+---
+# Grafana Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - name: grafana
+        image: grafana/grafana:latest
+        env:
+        - name: GF_SECURITY_ADMIN_PASSWORD
+          value: "admin123"
+        - name: GF_SECURITY_ADMIN_USER
+          value: "admin"
+        - name: GF_USERS_ALLOW_SIGN_UP
+          value: "false"
+        
+        ports:
+        - name: web
+          containerPort: 3000
+        
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: web
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: web
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        
+        volumeMounts:
+        - name: storage
+          mountPath: /var/lib/grafana
+        - name: datasources
+          mountPath: /etc/grafana/provisioning/datasources
+      
+      volumes:
+      - name: storage
+        emptyDir: {}
+      - name: datasources
+        configMap:
+          name: grafana-datasources
+
+---
+# Grafana Service - ClusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-internal
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  type: ClusterIP
+  ports:
+  - name: web
+    port: 3000
+    targetPort: web
+  selector:
+    app: grafana
+
+---
+# Grafana Service - LoadBalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-loadbalancer
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  type: LoadBalancer
+  ports:
+  - name: web
+    port: 80
+    targetPort: web
+  selector:
+    app: grafana
+
+---
+# Grafana Service - NodePort
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-nodeport
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  type: NodePort
+  ports:
+  - name: web
+    port: 3000
+    targetPort: web
+    nodePort: 30300
+  selector:
+    app: grafana

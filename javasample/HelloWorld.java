@@ -5,9 +5,17 @@ import java.time.format.DateTimeFormatter;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class HelloWorld {
     private static BufferedWriter logWriter;
+    
+    // Prometheus metrics counters
+    private static AtomicLong totalRequests = new AtomicLong(0);
+    private static AtomicLong successRequests = new AtomicLong(0);
+    private static AtomicLong errorRequests = new AtomicLong(0);
+    private static AtomicLong healthCheckRequests = new AtomicLong(0);
+    private static long startTime = System.currentTimeMillis();
     
     public static void main(String[] args) {
         try {
@@ -30,12 +38,14 @@ public class HelloWorld {
             HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
             server.createContext("/", exchange -> handleRequest(exchange));
             server.createContext("/health", exchange -> handleHealth(exchange));
+            server.createContext("/metrics", exchange -> handleMetrics(exchange));
             server.setExecutor(null);
             server.start();
             
             log(timestamp + " - HTTP Server started successfully!");
             System.out.println("Server is running on http://localhost:8080");
             System.out.println("Health check available at http://localhost:8080/health");
+            System.out.println("Prometheus metrics available at http://localhost:8080/metrics");
             
         } catch (Exception e) {
             try {
@@ -48,6 +58,7 @@ public class HelloWorld {
     }
     
     private static void handleRequest(HttpExchange exchange) throws IOException {
+        totalRequests.incrementAndGet();
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         
         String response = "<!DOCTYPE html>\n" +
@@ -83,10 +94,12 @@ public class HelloWorld {
         os.write(response.getBytes());
         os.close();
         
+        successRequests.incrementAndGet();
         log(timestamp + " - Request received from " + exchange.getRemoteAddress().getAddress().getHostAddress());
     }
     
     private static void handleHealth(HttpExchange exchange) throws IOException {
+        healthCheckRequests.incrementAndGet();
         String response = "{\"status\": \"UP\", \"timestamp\": \"" + 
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\"}";
         
@@ -94,6 +107,53 @@ public class HelloWorld {
         exchange.sendResponseHeaders(200, response.getBytes().length);
         OutputStream os = exchange.getResponseBody();
         os.write(response.getBytes());
+        os.close();
+    }
+    
+    private static void handleMetrics(HttpExchange exchange) throws IOException {
+        long uptime = System.currentTimeMillis() - startTime;
+        long memoryUsed = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        long memoryMax = Runtime.getRuntime().maxMemory();
+        double memoryPercent = (double) memoryUsed / memoryMax * 100;
+        
+        StringBuilder metrics = new StringBuilder();
+        metrics.append("# HELP java_app_requests_total Total number of requests\n");
+        metrics.append("# TYPE java_app_requests_total counter\n");
+        metrics.append("java_app_requests_total{endpoint=\"/\"} ").append(totalRequests.get()).append("\n");
+        
+        metrics.append("# HELP java_app_requests_success Total number of successful requests\n");
+        metrics.append("# TYPE java_app_requests_success counter\n");
+        metrics.append("java_app_requests_success ").append(successRequests.get()).append("\n");
+        
+        metrics.append("# HELP java_app_requests_errors Total number of error requests\n");
+        metrics.append("# TYPE java_app_requests_errors counter\n");
+        metrics.append("java_app_requests_errors ").append(errorRequests.get()).append("\n");
+        
+        metrics.append("# HELP java_app_health_checks Total number of health checks\n");
+        metrics.append("# TYPE java_app_health_checks counter\n");
+        metrics.append("java_app_health_checks ").append(healthCheckRequests.get()).append("\n");
+        
+        metrics.append("# HELP java_app_uptime_ms Application uptime in milliseconds\n");
+        metrics.append("# TYPE java_app_uptime_ms gauge\n");
+        metrics.append("java_app_uptime_ms ").append(uptime).append("\n");
+        
+        metrics.append("# HELP java_memory_used Memory used in bytes\n");
+        metrics.append("# TYPE java_memory_used gauge\n");
+        metrics.append("java_memory_used ").append(memoryUsed).append("\n");
+        
+        metrics.append("# HELP java_memory_max Maximum memory in bytes\n");
+        metrics.append("# TYPE java_memory_max gauge\n");
+        metrics.append("java_memory_max ").append(memoryMax).append("\n");
+        
+        metrics.append("# HELP java_memory_usage_percent Memory usage percentage\n");
+        metrics.append("# TYPE java_memory_usage_percent gauge\n");
+        metrics.append("java_memory_usage_percent ").append(memoryPercent).append("\n");
+        
+        byte[] responseBytes = metrics.toString().getBytes();
+        exchange.getResponseHeaders().set("Content-Type", "text/plain; charset=UTF-8");
+        exchange.sendResponseHeaders(200, responseBytes.length);
+        OutputStream os = exchange.getResponseBody();
+        os.write(responseBytes);
         os.close();
     }
     
